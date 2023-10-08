@@ -5,11 +5,14 @@ import os
 DESC_SHEET = "Descrizione"
 FEATURE_SHEET = "Feature Generiche"
 SPELL_SHEET = "Incatesimi"
+TALENTS_SHEET = "Talenti"
 SPELL_PLACEHOLDER = "%SPELLS%"
 
 def parse_resource_by_type(wb, type):
     if type == "Sottoclasse":
         return ["subclasses", parse_class(wb)]
+    elif type == "Talento":
+        return ["talent", parse_talent(wb)]
     return ["", {}]
 
 def raw_features_to_feature(raw_feature, spells):
@@ -129,14 +132,59 @@ def parse_class(wb):
             "level": f_values["lvl"],
             "entries": raw_features_to_feature(f_values["content"], spells)
         }
-        template["features"] = template["features"] + [feature]
     return template
+
+def parse_talent_meta(wb, features):
+    ws_general = wb[DESC_SHEET]
+    icon = ws_general.cell(row=5, column=2).value
+    ws_talent = wb[FEATURE_SHEET]
+    talent_name = ws_talent.cell(row=2, column=2).value
+    feature = {
+        "name": talent_name,
+        "source": "TfI",
+        "icon": icon,
+        "entries": raw_features_to_feature(features[talent_name]["content"],[])
+    }
+    return feature
+
+def parse_ability_and_prerequiste(wb):
+    ws = wb[TALENTS_SHEET]
+    prerequisite = list()
+    ability = list()
+    row = 2
+    while ws.cell(row=row, column=1).value is not None or ws.cell(row=row, column=3).value is not None:
+        if(ws.cell(row=row, column=1).value is not None):
+            condition = ws.cell(row=row, column=1).value.strip()
+            if(condition == 'other'):
+                prerequisite.append({'other': ws.cell(row=row, column=2).value.strip()})
+            else:
+                prerequisite.append({condition: {'name': ws.cell(row=row, column=2).value.strip(), 'source': 'TfI'}})
+        else:
+            abi = ws.cell(row=row, column=3).value.strip()
+            ability_splitted = abi.split('|')
+            if(len(ability_splitted) > 1 ):
+                ability.append({"choose": {"from": ability_splitted,"amount":int(ws.cell(row=row, column=4).value)}})
+            else:
+                ability.append({"choose": {"from": abi,"amount":int(ws.cell(row=row, column=4).value)}})
+        row += 1 
+    return [prerequisite,ability]
+
+
+def parse_talent(wb):
+    spells = parse_subclass_spells(wb)
+    raw_features = parse_features(wb)
+    meta = parse_talent_meta(wb, raw_features)
+    [prerequisite,ability] = parse_ability_and_prerequiste(wb)
+    meta["prerequisite"]=prerequisite
+    meta["ability"]=ability
+    return meta
 
 language = 'en'
 filenames = [f for f in os.listdir(os.path.join('source', language)) if f.endswith("xlsx")]
 
 for file in filenames:
-    wb = load_workbook(os.path.join(os.path.dirname(os.path.abspath(__file__)), "source", language, file))
+    wb = load_workbook(os.path.join("source",language,file))
     resource_type = wb[DESC_SHEET].cell(row=1, column=2).value.strip()
     t, resource = parse_resource_by_type(wb, resource_type)
-    json.dump(resource, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), language, t, file.replace('xlsx', 'json')), 'w'))
+    json.dump(resource, open(os.path.join(language,t,file.replace('xlsx', 'json')), 'w'))
+
