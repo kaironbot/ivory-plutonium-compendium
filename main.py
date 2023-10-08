@@ -13,11 +13,11 @@ def generate_template_upload(folder: str, version: str) -> None:
     base["_meta"]["sources"][0]["version"] = version
     base_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), folder)
     # Add races
+    for j in os.listdir(os.path.join(base_folder, "races")):
+        race = json.load(open(os.path.join(base_folder, "races", j), 'r'))
+        race["source"] = "Tales from Ivory"
+        base["race"].append(race)
     if False:
-        for j in os.listdir(os.path.join(base_folder, "races")):
-            race = json.load(open(os.path.join(base_folder, "races", j), 'r'))
-            race["source"] = "Tales from Ivory"
-            base["race"].append(race)
         for j in os.listdir(os.path.join(base_folder, "subraces")):
             subrace = json.load(open(os.path.join(base_folder, "subraces", j), 'r'))
             subrace["source"] = "Tales from Ivory"
