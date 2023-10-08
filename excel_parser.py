@@ -12,7 +12,7 @@ def parse_resource_by_type(wb, type):
     if type == "Sottoclasse":
         return ["subclasses", parse_class(wb)]
     elif type == "Talento":
-        return ["talent", parse_talent(wb)]
+        return ["feats", parse_talent(wb)]
     return ["", {}]
 
 def raw_features_to_feature(raw_feature, spells):
