@@ -1,0 +1,24 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "TfI",
+				"abbreviation": "TfI",
+				"full": "Tales from Ivory",
+				"authors": [
+                    "Koinzell",
+                    "TestaDiRapa"
+				],
+				"version": "1.0",
+				"url": "https://talesofivory.it/"
+			}
+		],
+		"dateLastModified": 1643423127
+	},
+	"race": [],
+	"subrace": [],
+	"subclass": [],
+	"subclassFeature": [],
+	"feat": [],
+	"spell": []
+}
