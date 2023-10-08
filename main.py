@@ -28,6 +28,9 @@ def generate_template_upload(folder: str, version: str) -> None:
         subclass = json.load(open(os.path.join(base_folder, "subclasses", j), 'r'))
         base["subclass"].append(subclass["subclass"])
         base["subclassFeature"] += subclass["features"]
+    for j in os.listdir(os.path.join(base_folder, "subclass_features")):
+        feature = json.load(open(os.path.join(base_folder, "subclass_features", j), 'r'))
+        base["subclassFeature"].append(feature)
     # Add feats
     for j in os.listdir(os.path.join(base_folder, "feats")):
         feat = json.load(open(os.path.join(base_folder, "feats", j), 'r'))
