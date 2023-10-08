@@ -64,6 +64,14 @@ jobs:
         id: new-version
         run: echo "NEW_VERSION=$(cat version.ver)" >> $GITHUB_OUTPUT 
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+
+      - name: Creates Plutonium Compendium
+        run: python main.py -v ${{ steps.new-version.outputs.NEW_VERSION }}
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
@@ -73,18 +81,10 @@ jobs:
           commit_user_name: Kaironbot
           commit_user_email: deb@kaironbot.it
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.8
-
-      - name: Creates Plutonium Compendium
-        run: python main.py -v ${{ steps.new-version.outputs.NEW_VERSION }}
-
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
           body: ${{ github.event.pull_request.body }}
           tag: ${{ steps.new-version.outputs.NEW_VERSION }}
-          artifacts: plutonium/wagham_compendium.json
+          artifacts: ivory_compendium.json
           token: ${{ secrets.GITHUB_TOKEN }}
