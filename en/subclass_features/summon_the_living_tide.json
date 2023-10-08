@@ -1,0 +1,42 @@
+{
+	"name": "Summon the Living Tide",
+	"source": "TfI",
+	"featureType": [
+		"EI"
+	],
+	"prerequisite": [
+		{
+			"level": {
+				"level": 5,
+				"class": {
+					"name": "Warlock"
+				}
+			}
+		}
+	],
+	"additionalSpells": [
+		{
+			"innate": {
+				"_": {
+					"daily": {
+						"1e": [
+							"conjure animals"
+						]
+					}
+				}
+			}
+		}
+	],
+	"entries": [
+		"You can cast {@spell conjure animals} without using a spell slot. When you do, you can add the following options at the summoning list of the spell:",
+        {
+            "type": "list",
+            "items": [
+                "One swarm of tiny beasts of CR 1",
+                "Two swarms of tiny beasts of CR ½",
+                "Four swarms of tiny beasts of CR ¼"
+            ]
+        },
+        "Once you do so, you can't cast it  in this way again until you finish a long rest."
+	]
+}
