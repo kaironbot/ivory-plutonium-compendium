@@ -58,7 +58,7 @@ jobs:
 
       - name: Update patch version
         if: ${{ contains(github.event.pull_request.labels.*.name, 'patch') }}
-        run: echo  ${{ steps.bump_version_patch.outputs.next-version }} >> version.ver
+        run: echo ${{ steps.bump_version_patch.outputs.next-version }} > version.ver
 
       - name: Extract new version
         id: new-version
