@@ -41,4 +41,4 @@ def generate_template_upload(folder: str, version: str) -> None:
     json.dump(base, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ivory_compendium.json"), 'w', encoding='utf-8'), ensure_ascii=False)
 
 if __name__ == "__main__":
-    generate_template_upload('it', args.version)
+    generate_template_upload('en', args.version)
