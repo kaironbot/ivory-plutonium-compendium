@@ -34,7 +34,7 @@ jobs:
 
       - name: Update major version
         if: ${{ contains(github.event.pull_request.labels.*.name, 'major') }}
-        run: echo ${{ steps.bump_version_major.outputs.next-version }} >> version.ver
+        run: echo ${{ steps.bump_version_major.outputs.next-version }} > version.ver
 
       - name: Creation new version (Minor) 🏷️
         if: ${{ contains(github.event.pull_request.labels.*.name, 'minor') }}
@@ -46,7 +46,7 @@ jobs:
 
       - name: Update minor version
         if: ${{ contains(github.event.pull_request.labels.*.name, 'minor') }}
-        run: echo ${{ steps.bump_version_minor.outputs.next-version }} >> version.ver
+        run: echo ${{ steps.bump_version_minor.outputs.next-version }} > version.ver
 
       - name: Creation new version (Patch) 🏷️
         if: ${{ contains(github.event.pull_request.labels.*.name, 'patch') }}
