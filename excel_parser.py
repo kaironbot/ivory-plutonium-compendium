@@ -136,7 +136,7 @@ language = 'en'
 filenames = [f for f in os.listdir(os.path.join('source', language)) if f.endswith("xlsx")]
 
 for file in filenames:
-    wb = load_workbook(f"source\{language}\{file}")
+    wb = load_workbook(os.path.join(os.path.dirname(os.path.abspath(__file__)), "source", language, file))
     resource_type = wb[DESC_SHEET].cell(row=1, column=2).value.strip()
     t, resource = parse_resource_by_type(wb, resource_type)
-    json.dump(resource, open(f"{language}\{t}\{file.replace('xlsx', 'json')}", 'w'))
+    json.dump(resource, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), language, t, file.replace('xlsx', 'json')), 'w'))
