@@ -79,7 +79,7 @@ jobs:
           python-version: 3.8
 
       - name: Creates Plutonium Compendium
-        run: python plutonium/main.py -v ${{ steps.version.outputs.NEW_VERSION }}
+        run: python main.py -v ${{ steps.version.outputs.NEW_VERSION }}
 
       - name: Upload Release
         uses: ncipollo/release-action@v1
