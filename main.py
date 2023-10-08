@@ -13,31 +13,32 @@ def generate_template_upload(folder: str, version: str) -> None:
     base["_meta"]["sources"][0]["version"] = version
     base_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), folder)
     # Add races
-    for j in os.listdir(os.path.join(base_folder, "races")):
-        race = json.load(open(os.path.join(base_folder, "races", j), 'r'))
-        race["source"] = "Il Regno di Wagham"
-        base["race"].append(race)
-    for j in os.listdir(os.path.join(base_folder, "subraces")):
-        subrace = json.load(open(os.path.join(base_folder, "subraces", j), 'r'))
-        subrace["source"] = "Il Regno di Wagham"
-        subrace["raceSource"] = "Il Regno di Wagham"
-        base["subrace"].append(subrace)
-    # Add subclasses (TODO)
     if False:
-        for j in os.listdir(os.path.join(base_folder, "subclasses")):
-            subclass = json.load(open(os.path.join(base_folder, "subclasses", j), 'r'))
-            base["subclass"].append(subclass["subclass"])
-            base["subclassFeature"] += subclass["features"]
+        for j in os.listdir(os.path.join(base_folder, "races")):
+            race = json.load(open(os.path.join(base_folder, "races", j), 'r'))
+            race["source"] = "Tales from Ivory"
+            base["race"].append(race)
+        for j in os.listdir(os.path.join(base_folder, "subraces")):
+            subrace = json.load(open(os.path.join(base_folder, "subraces", j), 'r'))
+            subrace["source"] = "Tales from Ivory"
+            subrace["raceSource"] = "Tales from Ivory"
+            base["subrace"].append(subrace)
+    # Add subclasses (TODO)
+    for j in os.listdir(os.path.join(base_folder, "subclasses")):
+        subclass = json.load(open(os.path.join(base_folder, "subclasses", j), 'r'))
+        base["subclass"].append(subclass["subclass"])
+        base["subclassFeature"] += subclass["features"]
     # Add feats
-    for j in os.listdir(os.path.join(base_folder, "feats")):
-        feat = json.load(open(os.path.join(base_folder, "feats", j), 'r'))
-        feat["source"] = "iRdW"
-        base["feat"].append(feat)
-    for j in os.listdir(os.path.join(base_folder, "spells")):
-        feat = json.load(open(os.path.join(base_folder, "spells", j), 'r'))
-        feat["source"] = "iRdW"
-        base["spell"].append(feat)
-    json.dump(base, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "wagham_compendium.json"), 'w', encoding='utf-8'), ensure_ascii=False)
+    if False:
+        for j in os.listdir(os.path.join(base_folder, "feats")):
+            feat = json.load(open(os.path.join(base_folder, "feats", j), 'r'))
+            feat["source"] = "iRdW"
+            base["feat"].append(feat)
+        for j in os.listdir(os.path.join(base_folder, "spells")):
+            feat = json.load(open(os.path.join(base_folder, "spells", j), 'r'))
+            feat["source"] = "iRdW"
+            base["spell"].append(feat)
+    json.dump(base, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ivory_compendium.json"), 'w', encoding='utf-8'), ensure_ascii=False)
 
 if __name__ == "__main__":
     generate_template_upload('it', args.version)
