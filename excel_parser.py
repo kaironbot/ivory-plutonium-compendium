@@ -92,7 +92,6 @@ def parse_subclass_spells(wb):
             spells[lvl] = []
 
         spells[lvl].append(f"{spell.strip().lower()}" if (manual is None or manual.lower() == "phb") else f"{spell.strip().lower()}|{manual.lower()}")
-
         row += 1
     return spells
 
@@ -132,6 +131,7 @@ def parse_class(wb):
             "level": f_values["lvl"],
             "entries": raw_features_to_feature(f_values["content"], spells)
         }
+        template["features"] = template["features"] + [feature]
     return template
 
 def parse_talent_meta(wb, features):
