@@ -153,13 +153,13 @@ def parse_ability_and_prerequiste(wb):
     ability = list()
     row = 2
     while ws.cell(row=row, column=1).value is not None or ws.cell(row=row, column=3).value is not None:
-        if(ws.cell(row=row, column=1).value is not None):
+        if ws.cell(row=row, column=1).value is not None:
             condition = ws.cell(row=row, column=1).value.strip()
             if(condition == 'other'):
                 prerequisite.append({'other': ws.cell(row=row, column=2).value.strip()})
             else:
                 prerequisite.append({condition: {'name': ws.cell(row=row, column=2).value.strip(), 'source': 'TfI'}})
-        else:
+        if ws.cell(row=row, column=3).value is not None and ws.cell(row=row, column=4).value is not None:
             abi = ws.cell(row=row, column=3).value.strip()
             ability_splitted = abi.split('|')
             if(len(ability_splitted) > 1 ):
@@ -171,12 +171,12 @@ def parse_ability_and_prerequiste(wb):
 
 
 def parse_talent(wb):
-    spells = parse_subclass_spells(wb)
     raw_features = parse_features(wb)
     meta = parse_talent_meta(wb, raw_features)
     [prerequisite,ability] = parse_ability_and_prerequiste(wb)
-    meta["prerequisite"]=prerequisite
-    meta["ability"]=ability
+    meta["prerequisite"] = prerequisite
+    if len(ability) > 0:
+        meta["ability"] = ability
     return meta
 
 language = 'en'
