@@ -62,7 +62,7 @@ jobs:
 
       - name: Extract new version
         id: new-version
-        run: echo "NEW_VERSION=$(cat version.ver)">> $GITHUB_OUTPUT 
+        run: echo "NEW_VERSION=$(cat version.ver)" > $GITHUB_OUTPUT 
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
