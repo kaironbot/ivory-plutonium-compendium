@@ -1,0 +1,235 @@
+{
+    "name": "Altered",
+    "source": "TfI",
+    "ability": [
+        {
+            "choose": {
+                "weighted": {
+                    "from": [
+                        "str",
+                        "dex",
+                        "con",
+                        "int",
+                        "wis",
+                        "cha"
+                    ],
+                    "weights": [
+                        2,
+                        1
+                    ]
+                }
+            }
+        },
+        {
+            "choose": {
+                "weighted": {
+                    "from": [
+                        "str",
+                        "dex",
+                        "con",
+                        "int",
+                        "wis",
+                        "cha"
+                    ],
+                    "weights": [
+                        1,
+                        1,
+                        1
+                    ]
+                }
+            }
+        }
+    ],
+    "size": [
+        "M",
+        "S"
+    ],
+    "speed": {
+        "walk": 30
+    },
+    "skillProficiencies": [
+        {
+            "any": 1
+        }
+    ],
+    "languageProficiencies": [
+        {
+            "common": true,
+            "any": 1
+        }
+    ],
+    "entries": [
+        {
+            "name": "Languages",
+            "entries": [
+                "You can speak, read, and write Common and one extra language of your choice. Altered typically learn the languages of peoples they deal with. Like their original people or the community that accepted them."
+            ],
+            "type": "entries"
+        },
+        {
+            "name": "Animal Features",
+            "entries": [
+                "When you choose this race, you gain three Minor Alterations or two Minor and one Major Alteration.",
+                "Minor Alterations:",
+                {
+                    "type": "list",
+                    "items": [
+                        {
+                            "type": "entries",
+                            "name": "Acquatic Adaptation",
+                            "entries": [
+                                "You can breathe air and water, and you gain a swim speed equal to your walking speed."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Altered Metabolism",
+                            "entries": [
+                                "You don\\u2019t need to eat, drink, or breathe. You have advantage on saving throws against diseases and being poisoned, and you have resistance to poison damage. When you take a long rest, you must spend at least six hours in an inactive, motionless state, rather than sleeping. In this state, you appear quiescent, but it doesn\\u2019t render you unconscious, and you can see and hear as normal."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Darkvision",
+                            "entries": [
+                                "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Fleet of Foot",
+                            "entries": [
+                                "Your base walking speed increases to 35 feet."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Glider",
+                            "entries": [
+                                "You have vestigial wings that you use to slow your fall or allow you to glide. When you fall and are not incapacitated, you can subtract up to 100 feet from your fall when calculating your fall damage and can move horizontally 2 feet for every 1 foot you fall."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Natural Weapon",
+                            "entries": [
+                                "You have a natural weapon that you can use to make unarmed strikes. You can add your Dexterity modifier, instead of your Strength modifier, to the attack and damage rolls when you attack with this Natural Weapon. It deals 1d6 Bludgeoning, Piercing or Slashing damage on a hit (choose when you select this race)."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Nimble Climber",
+                            "entries": [
+                                "You have a climb speed equal to your walking speed."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Mutated Eyes",
+                            "entries": [
+                                "You have advantage on Wisdom (Perception) checks that rely on sight."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Silent Speech",
+                            "entries": [
+                                "You can speak telepathically to any creature within 30 feet of you. The creature understands you only if the two of you share a language. You can speak telepathically in this way to one creature at a time."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Skilled",
+                            "entries": [
+                                "You gain proficiency in a skill of your choice."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Strong-Minded",
+                            "entries": [
+                                "You have advantage on saving throws you make to avoid or end the charmed or frightened condition on yourself."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Supernatural resistance",
+                            "entries": [
+                                "You gain resistance to one damage type of your choice: acid, cold, fire, force, lightning, necrotic, psychic, radiant or thunder."
+                            ]
+                        }
+                    ]
+                },
+                "Major Alterations:",
+                {
+                    "type": "list",
+                    "items": [
+                        {
+                            "type": "entries",
+                            "name": "Amorphous",
+                            "entries": [
+                                "You can squeeze through a space as narrow as 1 inch wide, provided you are wearing and carrying nothing. You also have advantage on ability checks and saving throws you make to avoid or to end the grappled or restrained condition on yourself."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Augmented Toughness",
+                            "entries": [
+                                "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Blind Sense",
+                            "entries": ["You have blindsight in a range of 30 ft. You are blind beyond this radius and you have advantage on Wisdom (Perception) checks that rely on hearing or smell. You can\\u2019t benefit from features, traits or effects. You can't benefit from any other sense of sight, magical or not."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Magical Affinity",
+                            "entries": [
+                                "You know one cantrip of your choice from any class spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this cantrip (choose when you select this race)."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Massive Build",
+                            "entries": [
+                                "You have advantage on Strength-based ability checks and Strength saving throws. In addition, you count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Painful Regeneration",
+                            "entries": ["Whenever you start your turn with half of your hit points or less, you can choose to roll a d3. If you do, you regain hit points equal to the roll result and subtract that number from your attack rolls, ability check and saving throws until the start of your next turn. You don't gain this benefit if you have 0 hit points."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Secondary Arms",
+                            "entries": [
+                                "You have two slightly smaller secondary arms below your primary pair of arms. The secondary arms can manipulate an object, open or close a door or container, pick up or set down a Tiny object, or wield a weapon that has the light property."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Shapechanger",
+                            "entries": ["As an action, you can change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height and weight, but not so much that your size changes. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of a creature you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait. You stay in the new form until you use an action to revert to your true form or until you die."
+                            ]
+                        },
+                        {
+                            "type": "entries",
+                            "name": "Unnatural Armor",
+                            "entries": [
+                                "Your skin in some areas is covered by thick plates. You gain a +1 to your AC when not wearing heavy armor."
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "type": "entries"
+        }
+    ],
+    "hasFluff": false,
+    "hasFluffImages": false
+}
