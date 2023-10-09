@@ -165,7 +165,7 @@ def parse_ability_and_prerequiste(wb):
             if(len(ability_splitted) > 1 ):
                 ability.append({"choose": {"from": ability_splitted,"amount":int(ws.cell(row=row, column=4).value)}})
             else:
-                ability.append({"choose": {"from": abi,"amount":int(ws.cell(row=row, column=4).value)}})
+                ability.append({abi:int(ws.cell(row=row, column=4).value)})
         row += 1 
     return [prerequisite,ability]
 
